@@ -1,0 +1,22 @@
+{{define "title"}}Edit the first block of the story{{end}}
+
+{{define "main"}}
+<form class="form" method="post">
+    <div class="container">
+        <div class="content-options-field title-field">    
+            <textarea name="title" id="title" placeholder="Write the title of the story">{{.DataDialogues.FirstBlock.StoryTitle}}</textarea>
+        </div>
+        <div class="content-options-field">
+            <textarea name="content" id="content" placeholder="Write your story">{{.DataDialogues.FirstBlock.FirstBlockContent}}</textarea>
+        </div>
+        <div class="content-options-field options-field">
+            <textarea name="options" id="options" placeholder="Write options">{{range .DataDialogues.OptionsToBlocks}}{{range $key, $value := .}}change {{$key}} {{$value}}&#10;{{end}}{{end}}</textarea>
+        </div>
+    </div>
+    
+    <div class="button-container">
+        <button type="submit">Save</button> 
+        <button type="reset">Reset</button>
+    </div>
+</form>
+{{end}}
